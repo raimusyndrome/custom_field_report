@@ -1,0 +1,54 @@
+
+<h3>カスタムフィールド</h3>
+
+<table class="list custom_field">
+	<thead><tr>
+			<th>フィールド名</th>
+			<th>形式</th>
+	</tr></thead>
+	<tbody>
+		<% @custom_field.each do |field| %>
+		<tr class"<%= cycle("odd", "even") %> field">
+			<td><%= field.name %></td>
+			<td><%= field.field_format %></td>
+		</tr>
+	<% end %>
+</tbody>
+</table>
+
+<% @list_field.each do |list| %>
+	<h3><%= list.name %></h3>
+
+<table class="list custom_field">
+	<thead><tr>
+			<th>フィールド名</th>
+	</tr></thead>
+	<tbody>
+		<% values = list.possible_values %>
+		<% values.each do |v| %>
+		<tr class"<%= cycle("odd", "even") %> field">
+			<td><%= v%></td>
+		</tr>
+	<% end %>
+</tbody>
+</table>
+<% end %>
+
+<% @counter.each do |name, pvalues| %>
+<h3><%= name %></h3>
+<table class="list custom_field" >
+	<thead><tr>
+			<th></th>
+			<th>合計</th>
+	</tr></thead>
+	<tbody>
+		<% pvalues.each do |v, c| %>
+		<tr class"<%= cycle("odd", "even") %> field">
+			<td><%= v%></td>
+			<td><%= c%></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<% end %>
+
